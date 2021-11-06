@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  h1= title
+  -var results = [{"cost":999,"model":"MacBook Air","memory":16},{"cost":1299,"model":"MacBook Pro 13","memory":16},{"cost":1999,"model":"MacBook Pro 14","memory":64}]
+  div(class="container-fuild")
+    div(class="row")
+      each result,index in results
+        div(class = "col-sm-2" id=index onclick=`age(${index})`) 
+          p #{result.cost}
+          p #{result.model}
+          p #{result.memory}
+
+          
+  script.
+    function age(element){
+      alert(`macbooks rank is ${element+1}.`)
+    }
