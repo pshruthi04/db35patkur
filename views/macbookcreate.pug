@@ -3,16 +3,16 @@ extends layout
 block content 
     h1= title 
 
-    form(id='macbookForm' action="/resource/macbooks" method="POST") 
+    form(id='macbookForm' action="/resource/macbook" method="POST") 
         div.form-group 
-            label.macbookAttr(for='cost') macbook type 
-            input#cost(type='number' name='cost') 
+            label.macbookAttr(for='cost') macbook cost
+            input#cost(type='text' name='cost') 
         div.form-group 
-            label.macbookAttr(for='model') macbook model 
+            label.macbookAttr(for='model') macbook model
             input#model(type='text' name='model') 
         div.form-group 
-            label.macbookAttr(for='memory') macbook memory 
-            input#cost(type='number' name='cost') 
+            label.macbookAttr(for='memory') macbook memory
+            input#memory(type='number' name='memory') 
         input(type="submit") 
 
     script. 
@@ -31,4 +31,4 @@ block content
                 // TODO handle error 
                 alert("Save failed " + error ) 
             }); 
-        }); 
+        });
