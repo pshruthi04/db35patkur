@@ -1,18 +1,19 @@
 extends layout
 
 block content
-  h1= title
-  -var results = [{"cost":999,"model":"MacBook Air","memory":16},{"cost":1299,"model":"MacBook Pro 13","memory":16},{"cost":1999,"model":"MacBook Pro 14","memory":64}]
-  div(class="container-fuild")
-    div(class="row")
-      each result,index in results
-        div(class = "col-sm-2" id=index onclick=`age(${index})`) 
-          p #{result.cost}
-          p #{result.model}
-          p #{result.memory}
+  h1= title 
+  p Search results kid 
+  p 
+  - let items=[{"cost":999,"model":"MacBook Air","memory":16},{"cost":1299,"model":"MacBook Pro 13","memory":16},{"cost":1999,"model":"MacBook Pro 14","memory":64}]
+    div(class="container-fluid")
+        div(class="row")
+            each v,index in items
+                div(class="col-sm-2" onclick=`age(${index})`) #{v.cost}
+                div(class="col-sm-2" onclick=`age(${index})`) #{v.model}
+                div(class="col-sm-2" onclick=`age(${index})`) #{v.memory}
 
-          
-  script.
-    function age(element){
-      alert(`macbooks rank is ${element+1}.`)
-    }
+  script.                
+        function age(element)
+        {
+              alert(`macbooks rank is ${element+1}`)
+        }

@@ -47,13 +47,13 @@ app.use('/macbooks', macbookRouter);
 async function recreateDB(){ 
   //Delete everything 
   await macbook.deleteMany();  
-  let instance1 = new macbook({"cost":999,"model":"MacBook Air","memory":16}); 
+  let instance1 = new macbook({"cost":999,"model":"MacBook Air","memory":16});
   instance1.save( function(err,doc) { 
   if(err) return console.error(err); 
   console.log("First object saved") 
   });
    
-  let instance2 = new macbook({"cost":1299,"model":"MacBook Pro 13","memory":16}); 
+  let instance2 = new macbook({"cost":1299,"model":"MacBook Pro 13","memory":16});
   instance2.save( function(err,doc) { 
   if(err) return console.error(err); 
   console.log("Second object saved") 

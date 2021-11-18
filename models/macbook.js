@@ -1,8 +1,8 @@
 const mongoose = require("mongoose") 
-const macbookSchema = mongoose.Schema({ 
- macbook_type: String, 
- size: String, 
- cost: Number 
+const macbookSchema = mongoose.Schema({  
+ cost: Number,
+ model: String,
+ memory: Number
 }) 
  
 module.exports = mongoose.model("macbook", macbookSchema)
