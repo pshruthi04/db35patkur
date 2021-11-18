@@ -2,15 +2,21 @@ extends layout
 
 block content
   h1= title 
-  p Search results kid 
+  p Search results macbook 
   p 
   - let items=[{"cost":999,"model":"MacBook Air","memory":16},{"cost":1299,"model":"MacBook Pro 13","memory":16},{"cost":1999,"model":"MacBook Pro 14","memory":64}]
     div(class="container-fluid")
         div(class="row")
             each v,index in items
+              div(class="card bg-info text-white mb-3" class='col' class='card' class='card-body' class='card-text' onclick='buy('+index+')') #{o}
+                div(class = "col-sm-2" id=index onclick=`buy(${index})`) 
                 div(class="col-sm-2" onclick=`age(${index})`) #{v.cost}
                 div(class="col-sm-2" onclick=`age(${index})`) #{v.model}
                 div(class="col-sm-2" onclick=`age(${index})`) #{v.memory}
+                a(href="macbook/update/?id="+v.id) Update
+                a(href="macbook/detail/?id="+v.id) View
+                a(href="macbook/delete/?id="+v.id) Delete
+
 
   script.                
         function age(element)

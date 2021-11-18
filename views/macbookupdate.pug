@@ -15,13 +15,13 @@ block content
   form(id='macbookForm', action= actionid, method="PUT") 
     div.form-group 
       label.macbookAttr(for='cost') macbook cost
-      input#cost(type='number', cost='cost', value= cost ) 
+      input#cost(type='number', name='cost', value= cost ) 
     div.form-group 
       label.macbookAttr(for='model') macbook model
-      input#model(type='text', cost='model', value= model ) 
+      input#model(type='text', name='model', value= model ) 
     div.form-group 
       label.macbookAttr(for='memory') macbook memory
-      input#memory(type='number', cost='memory', value= memory ) 
+      input#memory(type='number', name='memory', value= memory ) 
     input(type="submit") 
  
   script. 
