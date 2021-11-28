@@ -9,7 +9,7 @@ block content
     - let macbookid = toShow._id 
     - let cost= toShow.cost
     - let model = toShow.model
-    - let memory= toShow.memory
+    - let memory = toShow.memory
     - let actionid = "/resource/macbook/" + macbookid 
     script let actionid = "#{actionid}" 
     div 
@@ -17,13 +17,13 @@ block content
         div(class='macbookAttr mr-3') macbook ID is: 
         div #{macbookid} 
       div.row 
-        div(class='macbookAttr mr-3') macbook Type is: 
+        div(class='macbookAttr mr-3') macbook cost is: 
         div #{cost} 
       div.row 
-        div(class='macbookAttr mr-3') macbook Size is: 
+        div(class='macbookAttr mr-3') macbook model is: 
         div #{model} 
       div.row 
-        div(class='macbookAttr mr-3') macbook Cost is: 
+        div(class='macbookAttr mr-3') macbook memory is: 
         div #{memory} 
  
     button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
@@ -31,7 +31,7 @@ block content
  
   script. 
     function cancel() { 
-      // Go back to the home pmemoryfor the macbook collection 
+      // Go back to the home pmemory for the macbook collection 
       window.location.href='/macbook' 
     } 
   script. 
@@ -39,7 +39,7 @@ block content
       console.log("starting delete") 
       // delete first 
       fetch(actionid, { 
-        method: 'DELETE'      // Don't need a body for the delete 
+        method: 'DELETE'      // Dont need a body for the delete 
       }).then((resp) => { 
         return resp.json(); // or resp.text() or whatever the server sends 
       }).then((body) => { 
@@ -50,4 +50,4 @@ block content
         // TODO handle error 
         alert("Delete failed " + error ) 
       }); 
-    }
+    } 

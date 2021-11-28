@@ -1,23 +1,26 @@
 var express = require('express');
-const macbook_controllers= require('../controllers/macbook');
+const macbook_controlers= require('../controllers/macbook');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('macbook', { title: 'Search Results for Macbook' });
-});
+/* GET macbook page. */
+router.get('/', macbook_controlers.macbook_view_all_Page );
+module.exports = router;
 
-/* GET detail macbook page */ 
-router.get('/detail', macbook_controllers.macbook_view_one_Page); 
+// GET request for one macbook.
+router.get('/macbook/:id', macbook_controlers.macbook_detail);
+module.exports = router;
 
-/* GET create macbook page */ 
-router.get('/create', macbook_controllers.macbook_create_Page); 
- 
-/* GET create update page */ 
-router.get('/update', macbook_controllers.macbook_update_Page); 
- 
-/* GET create macbook page */ 
-router.get('/delete', macbook_controllers.macbook_delete_Page); 
- 
+/* GET detail macbook page */
+router.get('/detail', macbook_controlers.macbook_view_one_Page);
 
+
+/* GET create macbook page */
+router.get('/create', macbook_controlers.macbook_create_Page);
+
+
+/* GET create update page */
+router.get('/update', macbook_controlers.macbook_update_Page);
+
+/* GET create macbook page */
+router.get('/delete', macbook_controlers.macbook_delete_Page);
 module.exports = router;

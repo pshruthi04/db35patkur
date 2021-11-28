@@ -1,11 +1,17 @@
 extends layout
 
 block content
-  h1= title 
-  p Search results macbook 
-  p 
-  - let items=[{"cost":999,"model":"MacBook Air","memory":16},{"cost":1299,"model":"MacBook Pro 13","memory":16},{"cost":1999,"model":"MacBook Pro 14","memory":64}]
-    div(class='container-fluid')
+  h1= title
+  - let o;
+  - let items = results; 
+  
+  script.                
+        function buy(element)
+        {
+              alert(`macbooks rank is ${element+1}`)
+        }
+  
+  div(class='container-fluid')
     div(class='row m-1')
     div(class= "row row-cols-1 row-cols-sm-4 g-6")
       each item, index in items 
@@ -18,9 +24,4 @@ block content
     function dispatch(path){
       window.location.href=path
     }        
-
-  script.                
-        function age(element)
-        {
-              alert(`macbooks rank is ${element+1}`)
-        }
+    
