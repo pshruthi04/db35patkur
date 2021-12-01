@@ -7,9 +7,9 @@ block content
     h2 No instance to delete 
   else 
     - let macbookid = toShow._id 
-    - let cost= toShow.cost
-    - let model = toShow.model
-    - let memory = toShow.memory
+    - let cost = toShow.cost 
+    - let model = toShow.model 
+    - let memory = toShow.memory 
     - let actionid = "/resource/macbook/" + macbookid 
     script let actionid = "#{actionid}" 
     div 
@@ -31,15 +31,15 @@ block content
  
   script. 
     function cancel() { 
-      // Go back to the home pmemory for the macbook collection 
-      window.location.href='/macbook' 
+      // Go back to the home page for the macbook collection 
+      window.location.href='/macbooks' 
     } 
   script. 
     function deleteOnid() { 
       console.log("starting delete") 
       // delete first 
       fetch(actionid, { 
-        method: 'DELETE'      // Dont need a body for the delete 
+        method: 'DELETE'      // Don't need a body for the delete 
       }).then((resp) => { 
         return resp.json(); // or resp.text() or whatever the server sends 
       }).then((body) => { 

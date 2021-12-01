@@ -1,44 +1,48 @@
-extends layout
-
-block content
-  h1= title
-
-  - let macbookid = toShow._id
-  - let cost = toShow.cost
-  - let model = toShow.model
-  - let memory = toShow.memory 
-
-  div.row(class='mb-2') 
-    div.mr-1 ID is 
-    div #{macbookid} 
-  - let actionid = "/resource/macbook/" + macbookid 
-  form(id='macbookForm', action= actionid, method="PUT") 
-    div.form-group 
-      label.macbookAttr(for='cost') macbook cost
-      input#cost(type='number', name='cost', value= cost ) 
-    div.form-group 
-      label.macbookAttr(for='model') macbook model
-      input#model(type='text', name='model', value= model ) 
-    div.form-group 
-      label.macbookAttr(for='memory') macbook memory
-      input#memory(type='number', name='memory', value= memory ) 
-    input(type="submit") 
+extends layout 
  
- 
-  script. 
-    document.forms['macbookForm'].addEventListener('submit', (event) => { 
-      event.preventDefault(); 
-      // TODO do something here to show user that form is being submitted 
-      fetch(event.target.action, { 
-        method: 'PUT', 
-        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
-      }).then((resp) => { 
-        return resp.json(); // or resp.text() or whatever the server sends 
-      }).then((body) => { 
-        alert("Update succeded") 
-        // TODO handle body 
-      }).catch((error) => { 
-        // TODO handle error 
-        alert("Update failed " + error ) 
-      }); 
-    }); 
+block content 
+  h1= title 
+  if (toShow == null) 
+    h2 No instance to update 
+  else 
+    - let macbookeid = toShow._id 
+    - let cost = toShow.cost 
+    - let model = toShow.model 
+    - let memory = toShow.memory 
+    
+    div.row(class='mb-2') 
+      div.mr-1 ID is 
+      div #{macbookeid} 
+    - let actionid = "/resource/macbooke/" + macbookeid 
+    form(id='macbookeForm', action= actionid, method="PUT") 
+      div.form-group 
+          label.macbookeAttr(for='cost') macbooke cost <br>
+          input#cost(type='number', class="form-control col-xs-2", name='cost', value= cost ) 
+          <br>
+      div.form-group 
+          label.macbookeAttr(for='model') macbooke model 
+          input#model(type='text', class="form-control col-xs-2", name='model', value= model ) 
+          <br>
+      div.form-group 
+          label.macbookeAttr(for='memory') macbooke memory 
+          input#memory(type='number',class="form-control col-xs-2", name='memory', value= memory ) 
+          <br>
+      input(class="btn btn-success" type="submit") 
+  
+    script. 
+      document.forms['macbookeForm'].addEventListener('submit', (event) => { 
+        event.preventDefault(); 
+        // TODO do something here to show user that form is being submitted 
+        fetch(event.target.action, { 
+          method: 'PUT', 
+          body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+        }).then((resp) => { 
+          return resp.json(); // or resp.text() or whatever the server sends 
+        }).then((body) => { 
+          alert("Update succeded") 
+          // TODO handle body 
+        }).catch((error) => { 
+          // TODO handle error 
+          alert("Update failed " + error ) 
+        }); 
+      });

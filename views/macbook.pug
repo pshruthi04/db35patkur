@@ -2,26 +2,28 @@ extends layout
 
 block content
   h1= title
+  - let items=[{"cost":999,"model":"MacBook Air","memory":16},{"cost":1299,"model":"MacBook Pro 13","memory":16},{"cost":1999,"model":"MacBook Pro 14","memory":64}]
   - let o;
-  - let items = results; 
-  
-  script.                
-        function buy(element)
-        {
-              alert(`macbooks rank is ${element+1}`)
-        }
-  
+  script.
+    function buy(x){
+      alert('purchased item ' + x)
+   } 
   div(class='container-fluid')
     div(class='row m-1')
-    div(class= "row row-cols-1 row-cols-sm-4 g-6")
-      each item, index in items 
+    div(class="row row-cols-1 row-cols-sm-4 g-6")
+      each item, index in items
         - let destination = `dispatch(\"/macbook/update?id=${item._id}\")`
-        div(class="card text-white bg-warning mb-3" class='col' class='card' class='card-body' class='card-text' onclick='buy('+index+')') Item #{item.cost}(#{item.model}) is #{item.memory}
-          <br><br>
-          button.btn( class="btn-success ml-1", onclick= destination) Update
+         - let details = `dispatch(\"/macbook/detail?id=${item._id}\")`
 
+        div(class="card text-white bg-secondary mb-3" class='col' class='card' class='card-body' class='card-text' onclick='buy('+index+')') Item #{item.cost}(#{item.model})is #{item.memory}
+          <br><br>
+          span(class="btn btn-info", onclick= details) Details
+          <br>
+          a(class="btn btn-danger", href="/macbook/delete/?id="+item._id) Delete
+          <br>
+
+          button.btn( class="btn-success ml-1", onclick= destination) Update
   script.
     function dispatch(path){
       window.location.href=path
-    }        
-    
+    }

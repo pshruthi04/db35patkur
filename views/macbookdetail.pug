@@ -1,22 +1,24 @@
-extends layout
-
-block content
- h1= title
-
- - let macbookid = toShow._id
- - let cost = toShow.cost
- - let model = toShow.model
- - let memory = toShow.memory
- div
-   div.row
-     div(class='macbookAttr mr-3') macbook ID is:
-     div #{macbookid}
-   div.row
-     div(class='macbookAttr mr-3') macbook cost is:
-     div #{cost}
-   div.row
-     div(class='macbookAttr mr-3') macbook model is:
-     div #{model}
-   div.row
-     div(class='macbookAttr mr-3') macbook memory is:
-     div #{memory}
+extends layout 
+ 
+block content 
+  h1= title 
+  if (toShow == null) 
+    h2 No instance to show 
+  else 
+    - let macbookid = toShow._id 
+    - let cost = toShow.cost 
+    - let model = toShow.model 
+    - let memory = toShow.memory 
+    div 
+      div.row 
+        div(class='macbookAttr mr-3') macbook ID is: 
+        div #{macbookid} 
+      div.row 
+        div(class='macbookAttr mr-3') macbook cost is: 
+        div #{cost} 
+      div.row 
+        div(class='macbookAttr mr-3') macbook model is: 
+        div #{model} 
+      div.row 
+        div(class='macbookAttr mr-3') macbook memory is: 
+        div #{memory}
